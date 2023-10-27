@@ -1,47 +1,53 @@
 ---
-import LeftCapsuleContainer from './LeftCapsuleContainer.astro';
-import RightCapsuleContainer from './RightCapsuleContainer.astro';
+import LeftCapsuleContainer from './LeftContainer.astro';
+import RightCapsuleContainer from './RightContainer.astro';
 ---
 
 <section>
-  <div class="carrusel">
-
+  <div class="leftsection">
+<!--     <video src="./videos/homevideo.mp4" autoplay loop muted/> -->
   </div>
-  <div class="check">
+  <div class="rightsection">
 
   </div>
 
 </section>
-<!-- <video src="./videos/homevideo.mp4" autoplay loop muted/> -->
+
 
 
 
 
 <style>
       video {
-    width: 100%;
-    height:  780px;
+  
+    display: flex;
+
+ /*    justify-content: center;
+    align-items: center;
+ */
     object-fit: fill;
   }
  /* 2 colums 1fr each*/
   section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
     position: relative;
-    height: 80vh;
+    height: 100%;
+    flex: content;
   }
 
-  .carrusel {
+  .leftsection {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   background-color: brown;
-   flex: content;
+    background-color: brown;
+    flex-wrap: wrap;
+    flex: auto;
   }
 
-  .check {
+  .rightsection {
    background-color: aqua;
   }
 
