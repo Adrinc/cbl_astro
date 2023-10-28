@@ -1,17 +1,69 @@
 ---
-import LeftCapsuleContainer from './LeftContainer.astro';
-import RightCapsuleContainer from './RightContainer.astro';
+
+import ListaVideos from './components/RightContainer/ListaVideos.astro';
+
+
+//STRAPI VIDEO LIST
+let videoItems= [
+  {
+    title: 'Video1',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video2',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video3',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video4',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video5',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video6',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+  {
+    title: 'Video7',
+    subtitle: 'subtitulo',
+    imageUrl: 'https://placehold.co/80x50',
+  },
+];
+
+//https://placehold.co/600x400?text=Video
 ---
 
-<section>
+<div class="main">
   <div class="leftsection">
-<!--     <video src="./videos/homevideo.mp4" autoplay loop muted/> -->
+    <video src="./videos/cblunavideo.mp4" autoplay loop muted/>
   </div>
+
   <div class="rightsection">
-
-  </div>
-
-</section>
+    <li>
+      {
+        videoItems.map((item) => (
+          <ListaVideos
+            title={item.title}
+            subtitle={item.subtitle}
+            imageUrl={item.imageUrl}
+          />
+        ))
+      }
+    </li>
+    </div>
+</div>
 
 
 
@@ -19,20 +71,33 @@ import RightCapsuleContainer from './RightContainer.astro';
 
 <style>
       video {
-  
     display: flex;
-
- /*    justify-content: center;
+    height: 100%;
+    justify-content: center;
     align-items: center;
- */
     object-fit: fill;
   }
- /* 2 colums 1fr each*/
-  section {
+
+  li {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
-    position: relative;
+    list-style: none;
+    margin-left: 20px;
+    margin-top: 50px;
+    gap: 30px;
+    overflow: scroll;
+    
+  }
+
+
+
+
+  .main {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr;
+
     height: 100%;
     flex: content;
   }
@@ -45,10 +110,12 @@ import RightCapsuleContainer from './RightContainer.astro';
     background-color: brown;
     flex-wrap: wrap;
     flex: auto;
+
   }
 
   .rightsection {
-   background-color: aqua;
+   background-color: rgb(119, 119, 119);
+   overflow: scroll;
   }
 
 </style>

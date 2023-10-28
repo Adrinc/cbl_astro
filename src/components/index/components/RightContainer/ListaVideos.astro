@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string
+  subtitle: string
+  imageUrl: string
+}
+
+const { title, subtitle, imageUrl } = Astro.props;
+---
+
+
+  <img src={imageUrl} alt="Imagen">
+  <div class="text-content">
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+  </div>
+
+  <style>
+  img {
+    width: 25em;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+  p {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+
+
+    </style>

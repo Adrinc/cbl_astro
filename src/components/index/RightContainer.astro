@@ -1,46 +1,25 @@
 ---
+import ListaVideos from './components/RightContainer/ListaVideos.astro';
 ---
 
 
-  <div class="carousel-container">
-    <div class="left-column">
-
-    </div>
     <div class="right-column">
-
+      <ListaVideos title='Video1' subtitle='subtitulo1' imageUrl='/images/rtalogo.jpeg'/>
     </div>
-  </div>
+
 
 
 
   <style>
-    .carousel-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-      width: 430px;
-      height: 250px;
-    }
-  
-    .left-column {
-      padding: 20px;
-      background-color: #ffffff;
-      opacity: 0.6;
-      border-radius: 100% 0 0 100%;
 
-      display: flex;
-    justify-content: center;
-    align-items: center;
-    }
   
     .right-column {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #ffffff;
-      opacity: 0.6;
-      overflow: hidden;
-     
+      justify-content: left;
+      align-items: left;
+      color: antiquewhite;
+      width: 50%;
+      height: 250px;
     }
   
     img {

@@ -1,6 +1,6 @@
 ---
 import BotonNav from './components/BotonNav.astro';
-import Dropdown from './components/Dropdown.astro';
+
 
 
 interface NavItem {
@@ -11,20 +11,18 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { texto: 'Home', link: '/', icon: '/home-2.svg' },
-  { texto: 'Deals', link: '../deals', icon: '/info-hexagon-filled.svg#info' },
-  { texto: '#38 Zane Smith', link: '/zane', icon: '/inbox.svg#inbox' },
-  { texto: 'Support', link: '/support', icon: '/inbox.svg#inbox' },
-  { texto: 'About us', link: '/about', icon: '/inbox.svg#inbox' },
-  { texto: 'FAQ', link: '/faq', icon: '/inbox.svg#inbox' },
-  { texto: 'Contact', link: '/contact', icon: '/inbox.svg#inbox' },
-  { texto: 'Login', link: '/content', icon: '/inbox.svg#inbox' },
+  { texto: 'Nosotros', link: '/nosotros', icon: '/info-hexagon-filled.svg#info' },
+  { texto: 'Servicios', link: '/servicios', icon: '/inbox.svg#inbox' },
+  { texto: 'Proyectos', link: '/proyectos', icon: '/inbox.svg#inbox' },
+  { texto: 'Contaco', link: '/contacto', icon: '/inbox.svg#inbox' },
+
 ];
 ---
 <nav>
 
   {navItems.map((item) => (
 
-    <BotonNav texto={item.texto} link={item.link} color='#2e5899' />
+    <BotonNav texto={item.texto} link={item.link} color='#FFFFFF' />
   ))}
 
 </nav>
@@ -37,7 +35,8 @@ const navItems: NavItem[] = [
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #ffffff;
+    gap: 50px;
+    background-color: #b7232300;
    
    
   }
