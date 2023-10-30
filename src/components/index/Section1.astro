@@ -8,37 +8,37 @@ let videoItems= [
   {
     title: 'Video1',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video2',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video3',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video4',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video5',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video6',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
   {
     title: 'Video7',
     subtitle: 'subtitulo',
-    imageUrl: 'https://placehold.co/80x50',
+    imageUrl: 'https://picsum.photos/200/300?random=',
   },
 ];
 
@@ -57,7 +57,7 @@ let videoItems= [
           <ListaVideos
             title={item.title}
             subtitle={item.subtitle}
-            imageUrl={item.imageUrl}
+            imageUrl={item.imageUrl+Math.floor(Math.random() * 100)}
           />
         ))
       }
@@ -71,51 +71,62 @@ let videoItems= [
 
 <style>
       video {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    object-fit: fill;
-  }
 
-  li {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    list-style: none;
-    margin-left: 20px;
-    margin-top: 50px;
-    gap: 30px;
-    overflow: scroll;
+    border-radius: 50%;
+    width: 700px;
+    height: 700px;
+    object-fit: fill;
+    background-color: black;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75),   20px -15px 10px 10px rgba(255, 255, 255, 0.75); 
     
   }
 
+  li {
+  list-style: none;
 
+  margin-top: 5%;
+
+/*   gap: 30px; */
+  overflow: scroll;
+ 
+  background-image: url("/public/images/moon.jpg");
+  background-clip: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 90%, rgba(0, 0, 0, 0.705));
+}
 
 
   .main {
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr;
 
     height: 100%;
     flex: content;
+    background-image: linear-gradient(to bottom, black,#2E1874,#6031E2, #C3B0FA); 
+    border-radius: 0% 0% 3% 3%;
+    
   }
 
   .leftsection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: brown;
-    flex-wrap: wrap;
-    flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-  }
+
+}
 
   .rightsection {
-   background-color: rgb(119, 119, 119);
+
    overflow: scroll;
+/*    background-image: url("/public/images/moon.jpg");
+    background-clip: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+     */
   }
 
 </style>
