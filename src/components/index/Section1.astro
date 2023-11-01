@@ -1,71 +1,66 @@
 ---
 
+import LeftContainer from './LeftContainer.astro';
 import ListaVideos from './components/RightContainer/ListaVideos.astro';
 
 
-//STRAPI VIDEO LIST
+//STRAPI VIDEO LIST ./videos/cblunavideo.mp4
 let videoItems= [
   {
     title: 'Video1',
     subtitle: 'subtitulo',
     imageUrl: 'https://picsum.photos/200/300?random=',
-    tarjetaBg: 'https://picsum.photos/200/300?&blur=3random=',
+    videoClip: './videos/cblunavideo.mp4'
   },
   {
     title: 'Video2',
     subtitle: 'subtitulo',
     imageUrl: 'https://picsum.photos/200/300?random=',
-    
+    videoClip: './videos/vt1.mp4'
   },
   {
     title: 'Video3',
     subtitle: 'subtitulo',
     imageUrl: 'https://picsum.photos/200/300?random=',
+    videoClip: './videos/vt2.mp4'
     
   },
   {
     title: 'Video4',
     subtitle: 'subtitulo',
     imageUrl: 'https://picsum.photos/200/300?random=',
+    videoClip: './videos/vt3.mp4'
     
-  },
-  {
-    title: 'Video5',
-    subtitle: 'subtitulo',
-    imageUrl: 'https://picsum.photos/200/300?random=',
-    
-  },
-  {
-    title: 'Video6',
-    subtitle: 'subtitulo',
-    imageUrl: 'https://picsum.photos/200/300?random=',
-    
-  },
-  {
-    title: 'Video7',
-    subtitle: 'subtitulo',
-    imageUrl: 'https://picsum.photos/200/300?random=',
-    
-  },
+  }
 ];
+let selectedVideo = './videos/cblunavideo.mp4';
 
-//https://placehold.co/600x400?text=Video
+
+ function videoSelected (videoUrl: string): string {
+  selectedVideo = videoUrl;
+  return selectedVideo;
+}
+setTimeout(() => {
+  videoSelected('./videos/vt1.mp4');
+}, 5000);
+
 ---
 
 <div class="main">
-  <div class="leftsection">
-    <video src="./videos/cblunavideo.mp4" autoplay loop muted/>
-  </div>
+
+    <LeftContainer clipVideo={selectedVideo} transition:persist />
+
 
   <div class="rightsection">
     <li>
       {
         videoItems.map((item) => (
-          <ListaVideos
+            <ListaVideos
             title={item.title}
             subtitle={item.subtitle}
             imageUrl={item.imageUrl+Math.floor(Math.random() * 100)}
-          />
+            />
+       
         ))
       }
     </li>
@@ -77,30 +72,11 @@ let videoItems= [
 
 
 <style>
-      video {
-
-    border-radius: 50%;
-    width: 700px;
-    height: 700px;
-    object-fit: fill;
-    background-color: black;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75),   20px -15px 10px 10px rgba(255, 255, 255, 0.75); 
-    
-  }
 
   li {
   list-style: none;
-
   margin-top: 5%;
-
-/*   gap: 30px; */
   overflow: scroll;
- 
-/*   background-image: url("/public/images/moon.jpg");
-  background-clip: border-box;
-  background-size: cover;
-  background-repeat: no-repeat; */
-
   mask-image: linear-gradient(to bottom, transparent, black 5%, black 90%, rgba(0, 0, 0, 0.705));
   overflow: hidden;
 }
@@ -118,14 +94,6 @@ let videoItems= [
     
   }
 
-  .leftsection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-
-}
 
   .rightsection {
 

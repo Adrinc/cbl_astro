@@ -1,6 +1,4 @@
 ---
-import BotonNav from './components/BotonNav.astro';
-
 
 
 interface NavItem {
@@ -17,13 +15,16 @@ const navItems: NavItem[] = [
   { texto: 'Contaco', link: '/contacto', icon: '/inbox.svg#inbox' },
 
 ];
+let currentUrl = new URL(Astro.request.url, Astro.site).pathname;
 ---
-<nav>
+<nav class="flex justify-between items-center  uppercase border-t-2 border-b-2 border-[#7b47ff]">
 
   {navItems.map((item) => (
-
-    <BotonNav texto={item.texto} link={item.link} color='#FFFFFF' />
+  <a href={item.link} class={`flex flex-row justify-center text-2xl text-center text-white px-4 py-2 font-medium no-underline relative border-0 hover:bg-[#7b47ff] ${currentUrl === item.link ? 'active' : ''}`}>
+  {item.texto}
+</a>
   ))}
+
 
 </nav>
 
@@ -31,13 +32,10 @@ const navItems: NavItem[] = [
 
 <style>
   nav{
-    display : flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    gap: 50px;
-    background-color: #b7232300;
-   
-   
-  }
+    clip-path: polygon(5% 1%, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%);
+    }
+    .active {
+      background-color: #7b47ff;
+}
+
 </style>
