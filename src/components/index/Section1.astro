@@ -1,5 +1,6 @@
 ---
 
+import BotonTest from './BotonTest.astro';
 import LeftContainer from './LeftContainer.astro';
 import ListaVideos from './components/RightContainer/ListaVideos.astro';
 
@@ -37,6 +38,7 @@ let selectedVideo = './videos/cblunavideo.mp4';
 
 
  function videoSelected (videoUrl: string): string {
+
   selectedVideo = videoUrl;
   return selectedVideo;
 }
@@ -46,19 +48,22 @@ setTimeout(() => {
 
 ---
 
-<div class="main">
-
-    <LeftContainer clipVideo={selectedVideo} transition:persist />
+<div class="main" >
+    <BotonTest />
+    <LeftContainer clipVideo={selectedVideo} />
 
 
   <div class="rightsection">
+  <!--   <BotonTest transition:persist/> -->
     <li>
       {
         videoItems.map((item) => (
+    
             <ListaVideos
             title={item.title}
             subtitle={item.subtitle}
             imageUrl={item.imageUrl+Math.floor(Math.random() * 100)}
+           
             />
        
         ))

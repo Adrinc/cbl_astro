@@ -20,7 +20,7 @@ let currentUrl = new URL(Astro.request.url, Astro.site).pathname;
 <nav class="flex justify-between items-center  uppercase border-t-2 border-b-2 border-[#7b47ff]">
 
   {navItems.map((item) => (
-  <a href={item.link} class={`flex flex-row justify-center text-2xl text-center text-white px-4 py-2 font-medium no-underline relative border-0 hover:bg-[#7b47ff] ${currentUrl === item.link ? 'active' : ''}`}>
+  <a  href={item.link} class={`flex flex-row justify-center text-2xl text-center text-white px-4 py-2 font-medium no-underline relative border-0 hover:bg-[#7b47ff] ${currentUrl === item.link ? 'active' : ''}`}>
   {item.texto}
 </a>
   ))}
